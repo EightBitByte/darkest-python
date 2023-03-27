@@ -1,10 +1,10 @@
 # interface/dialog.py
 #
 # The dialog module for the interface package.
-# This is where the dialogue box is specified.
+# This is where the dialogue box is defined.
 from PySide6 import QtCore, QtWidgets
 
-class DialogBox(QtWidgets.QDialog):
+class DialogBox(QtWidgets.QWidget):
     def __init__(self, parent = None):
         super(DialogBox, self).__init__(parent)
 
@@ -13,6 +13,7 @@ class DialogBox(QtWidgets.QDialog):
         self.send = QtWidgets.QPushButton('Send')
 
         self.send.clicked.connect(self.printInfo)
+        self.edit.returnPressed.connect(self.printInfo)
 
         # Create and set layout alignment
         self.layout = QtWidgets.QVBoxLayout()
@@ -25,7 +26,11 @@ class DialogBox(QtWidgets.QDialog):
 
         self.setLayout(self.layout)
 
+
     @QtCore.Slot()
     def printInfo(self):
         if len(self.edit.displayText()) != 0:
             print(self.edit.displayText())
+            self.edit.clear()
+
+__all__ = [DialogBox.__name__]
