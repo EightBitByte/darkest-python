@@ -20,9 +20,7 @@ class View(QtWidgets.QWidget):
 
         # Add the label to the layout
         layout = QtWidgets.QVBoxLayout()
-        layout.setDirection(QtWidgets.QVBoxLayout.LeftToRight)
-        layout.addWidget(label, stretch = 75)
-        layout.addStretch(stretch = 25)
+        layout.addWidget(label)
 
         self.setLayout(layout)
 

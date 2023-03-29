@@ -23,7 +23,6 @@ class DialogBox(QtWidgets.QWidget):
         # Add the widgets with their stretch parameters
         self.layout.addWidget(self.edit, alignment = QtCore.Qt.AlignBottom, stretch = 60)
         self.layout.addWidget(self.send, alignment = QtCore.Qt.AlignBottom, stretch = 15)
-        self.layout.addStretch(stretch = 25)
 
         self.setLayout(self.layout)
 
@@ -31,7 +30,7 @@ class DialogBox(QtWidgets.QWidget):
     @QtCore.Slot()
     def send_text(self):
         if len(self.edit.displayText()) != 0:
-            self.parent().parent().send_event(SendTextEvent(self.edit.displayText()))
+            self.parent().parent().parent().send_event(SendTextEvent(self.edit.displayText()))
             self.edit.clear()
 
 __all__ = [DialogBox.__name__]
