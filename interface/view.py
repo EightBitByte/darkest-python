@@ -9,18 +9,18 @@ class View(QtWidgets.QWidget):
         super(View, self).__init__(parent)
 
         # Initialize the label and style it
-        label = QtWidgets.QLabel()
+        self.label = QtWidgets.QLabel()
 
-        label.setFrameShape(QtWidgets.QFrame.Shape.Panel.WinPanel)
-        label.setFrameShadow(QtWidgets.QFrame.Shadow.Sunken)
+        self.label.setFrameShape(QtWidgets.QFrame.Shape.Panel.WinPanel)
+        self.label.setFrameShadow(QtWidgets.QFrame.Shadow.Sunken)
 
-        label.setLineWidth(1)
-        label.setMidLineWidth(2)
-        label.setStyleSheet('background-color: #d1d1d1')
+        self.label.setLineWidth(1)
+        self.label.setMidLineWidth(2)
+        self.label.setStyleSheet('background-color: #d1d1d1')
 
         # Add the label to the layout
         layout = QtWidgets.QVBoxLayout()
-        layout.addWidget(label)
+        layout.addWidget(self.label)
 
         self.setLayout(layout)
 
